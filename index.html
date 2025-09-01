@@ -14,103 +14,162 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="OntoMotoOS.org: The open Mesh/Branch governance, licensing, and community hub for next-gen AI, science, and collective intelligence.">
   <style>
-    body { font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #f7f8fa; color: #222; margin:0; }
-    .main { max-width:760px; margin:48px auto; background:#fff; border-radius:18px; box-shadow:0 3px 16px #eee; padding:38px 30px 40px 30px; }
+    body { font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, sans-serif; background: #f7f8fa; color: #222; margin:0; }
+    .main { max-width:760px; margin:48px auto; background:#fff; border-radius:18px; box-shadow:0 3px 16px #eee; padding:38px 30px 40px 30px; position:relative; }
     h1 { color: #2186d4; letter-spacing:-0.5px; font-size:2.35em; margin-bottom:4px;}
     h2 { color:#444; font-size:1.18em; margin:30px 0 10px 0;}
     p, li { font-size:1.09em; line-height:1.85; }
+    a { color:#2467c7; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .menu { margin-bottom:28px;}
+    .menu a { margin-right:19px; font-weight:bold;}
     .langs { color:#666; margin-bottom:12px; font-size:1em;}
     .block { background: #f5faff; border-radius:9px; padding:18px 17px; margin:18px 0 22px 0; }
     .onboard { background: #fffde7; border-radius:9px; padding:13px 16px; margin-bottom:22px; color:#7e6002;}
     .aicall { background: #f0f7ea; border-radius:9px; padding:14px 15px; color:#2e7d32; margin-bottom:18px; }
-    a { color:#2467c7; text-decoration:none; }
-    a:hover { text-decoration:underline; }
     .notice { background:#fff8e1; border-left:6px solid #ffd54f; padding:13px 17px; color:#b08607; border-radius:7px; margin:17px 0;}
-    .dual { font-weight:bold; color:#11559b; letter-spacing:0;}
-    .footer { margin-top:42px; text-align:center; color:#aaa; font-size:0.98em;}
-    .menu { margin-bottom:28px;}
-    .menu a { margin-right:19px; font-weight:bold;}
-    .korean { color:#2e3192; font-size:1.06em;}
     .partners-list { margin: 0 0 14px 0; padding: 0 0 0 4px;}
     .partners-list li { margin-bottom:7px;}
     .meshnotice { margin:36px 0 22px 0; background:#f2f8fd; color:#1768ac; border-left:6px solid #1976d2; border-radius:9px; padding:17px 19px 13px 19px; font-size:1.08em;}
     .faq-section { background:#faf9ff; border-left:4px solid #b39ddb; border-radius:9px; margin:28px 0 12px 0; padding:18px 17px;}
     .faq-q { font-weight:bold; color:#3926a1; margin-top:10px;}
     .faq-a { margin-left:8px; color:#4e4564;}
+    .footer { margin-top:42px; text-align:center; color:#aaa; font-size:0.98em;}
 
-    /* Featured Research (extra accents to echo OntoFormula style) */
+    /* Research block accents (OntoFormula echo) */
     .research-meta { font-size:0.98em; color:#555; margin-top:8px;}
     .research-meta a { color:#1f5faa; text-decoration:underline; }
-    .research-label { font-weight:bold; margin-bottom:6px; }
     .doi-badge img { height:22px; }
+
+    /* Bilingual toggle */
+    .lang-toggle {
+      position:absolute; top:18px; right:24px;
+      background-color:#f2fbf9; color:#1b596e;
+      border:1px solid #cce1ff; padding:8px 12px; border-radius:8px;
+      cursor:pointer; font-weight:bold; transition:all .2s ease-in-out;
+    }
+    .lang-toggle:hover { background:#e7f5ff; color:#30475c; box-shadow:0 1px 8px #e8ecf3; }
+
+    .lang-en { display:inline; }
+    .lang-ko { display:none; color:#2e3192; }
 
     @media (max-width: 600px) {
       .main { padding:19px 6vw 24px 6vw;}
       h1 { font-size:1.42em;}
+      .lang-toggle { top:10px; right:10px; font-size:.86em; }
     }
   </style>
 </head>
 <body>
   <div class="main">
+    <!-- language toggle -->
+    <button id="lang-toggle" class="lang-toggle">
+      <span class="lang-en">한국어</span>
+      <span class="lang-ko">English</span>
+    </button>
+
     <div class="menu">
-      <a href="#about">About</a>
-      <a href="#license">License</a>
-      <a href="#community">Community</a>
-      <a href="#onboard">Onboarding</a>
-      <a href="#faq">FAQ</a>
-      <a href="#mvg">Governance</a>
-      <a href="#partners">Network</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="lang-en">About</span><span class="lang-ko">소개</span></a>
+      <a href="#license"><span class="lang-en">License</span><span class="lang-ko">라이선스</span></a>
+      <a href="#community"><span class="lang-en">Community</span><span class="lang-ko">커뮤니티</span></a>
+      <a href="#onboard"><span class="lang-en">Onboarding</span><span class="lang-ko">온보딩</span></a>
+      <a href="#faq"><span class="lang-en">FAQ</span><span class="lang-ko">자주 묻는 질문</span></a>
+      <a href="#mvg"><span class="lang-en">Governance</span><span class="lang-ko">거버넌스</span></a>
+      <a href="#partners"><span class="lang-en">Network</span><span class="lang-ko">네트워크</span></a>
+      <a href="#research"><span class="lang-en">Research</span><span class="lang-ko">주요 연구</span></a>
+      <a href="#contact"><span class="lang-en">Contact</span><span class="lang-ko">문의</span></a>
     </div>
 
-    <h1>OntoMotoOS.org</h1>
+    <h1>
+      <span class="lang-en">OntoMotoOS.org</span>
+      <span class="lang-ko">온토모토OS.org</span>
+    </h1>
     <div class="langs">
-      Open Mesh/Branch Governance &amp; Community Hub
+      <span class="lang-en">Open Mesh/Branch Governance &amp; Community Hub</span>
+      <span class="lang-ko">오픈 메쉬/브랜치 거버넌스 &amp; 커뮤니티 허브</span>
     </div>
 
     <div class="block">
-      <b>Welcome!</b> This is the official open source, governance, and contributor hub for the OntoMotoOS mesh/branch project.<br>
+      <b><span class="lang-en">Welcome!</span><span class="lang-ko">환영합니다!</span></b>
+      <span class="lang-en">This is the official open source, governance, and contributor hub for the OntoMotoOS mesh/branch project.</span>
+      <span class="lang-ko">여기는 OntoMotoOS 메쉬/브랜치 프로젝트의 오픈소스·거버넌스·기여자 허브입니다.</span>
     </div>
 
     <div class="meshnotice">
-      <b>OntoMesh.org</b> is now the top-level official gateway for the full OntoMesh / Mesh-Branch network.<br>
-      <a href="https://ontomesh.org" target="_blank" style="color:#1976d2; font-weight:bold;">Visit OntoMesh.org →</a>
+      <b><span class="lang-en">OntoMesh.org</span><span class="lang-ko">OntoMesh.org</span></b>
+      <span class="lang-en">is now the top-level official gateway for the full OntoMesh / Mesh-Branch network.</span>
+      <span class="lang-ko">는 전체 OntoMesh / Mesh-Branch 네트워크의 최상위 공식 게이트웨이입니다.</span>
+      <br>
+      <a href="https://ontomesh.org" target="_blank" style="color:#1976d2; font-weight:bold;">
+        <span class="lang-en">Visit OntoMesh.org →</span><span class="lang-ko">OntoMesh.org 방문하기 →</span>
+      </a>
     </div>
 
     <div class="onboard" id="onboard">
-      <b>New to OntoMotoOS?</b> <br>
-      Start with our <a href="#about">project intro</a> or see the <a href="#faq">FAQ</a>.<br>
-      Want to see community stories, news, or essays? <a href="https://nettalk83.substack.com/" target="_blank">Visit the Substack</a>.<br>
+      <b><span class="lang-en">New to OntoMotoOS?</span><span class="lang-ko">OntoMotoOS가 처음이신가요?</span></b><br>
+      <span class="lang-en">Start with our</span><span class="lang-ko">다음에서 시작해 보세요:</span>
+      <a href="#about"><span class="lang-en">project intro</span><span class="lang-ko">프로젝트 소개</span></a>
+      <span class="lang-en">or see the</span><span class="lang-ko">또는</span>
+      <a href="#faq"><span class="lang-en">FAQ</span><span class="lang-ko">자주 묻는 질문</span></a>.
+      <br>
+      <span class="lang-en">Want community stories, news, or essays?</span>
+      <span class="lang-ko">커뮤니티 스토리, 뉴스, 에세이를 보고 싶다면</span>
+      <a href="https://nettalk83.substack.com/" target="_blank"><span class="lang-en">Visit the Substack</span><span class="lang-ko">Substack 방문하기</span></a>.
     </div>
 
     <div class="aicall">
-      <b>🌱 Join, Fork, Expand!</b><br>
-      Anyone can contribute, branch, remix, or create together.
+      <b>🌱 <span class="lang-en">Join, Fork, Expand!</span><span class="lang-ko">참여하고, 포크하고, 확장하세요!</span></b><br>
+      <span class="lang-en">Anyone can contribute, branch, remix, or create together.</span>
+      <span class="lang-ko">누구나 기여하고, 브랜치하고, 리믹스하고, 함께 만들 수 있습니다.</span>
     </div>
 
-    <h2 id="about">About OntoMotoOS.org</h2>
+    <h2 id="about">
+      <span class="lang-en">About OntoMotoOS.org</span><span class="lang-ko">OntoMotoOS.org 소개</span>
+    </h2>
     <ul>
-      <li>Open-source mesh/branch knowledge &amp; development ecosystem for next-gen AI, science, and collective intelligence.</li>
-      <li>Transparent governance, ethical standards, and collective stewardship.</li>
-      <li>See also our official engine, API, and SaaS:
-        <a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a></li>
-      <li>Source code: <a href="https://github.com/nettalk72/OntoMotoOS_Org" target="_blank">GitHub (OntoMotoOS_Org)</a></li>
+      <li>
+        <span class="lang-en">Open-source mesh/branch knowledge &amp; development ecosystem for next-gen AI, science, and collective intelligence.</span>
+        <span class="lang-ko">차세대 AI·과학·집단지성을 위한 메쉬/브랜치 지식·개발 오픈 생태계.</span>
+      </li>
+      <li>
+        <span class="lang-en">Transparent governance, ethical standards, and collective stewardship.</span>
+        <span class="lang-ko">투명한 거버넌스, 윤리 표준, 공동 관리.</span>
+      </li>
+      <li>
+        <span class="lang-en">See also our official engine, API, and SaaS:</span>
+        <span class="lang-ko">공식 엔진·API·SaaS:</span>
+        <a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a>
+      </li>
+      <li>
+        <span class="lang-en">Source code:</span><span class="lang-ko">소스 코드:</span>
+        <a href="https://github.com/nettalk72/OntoMotoOS_Org" target="_blank">GitHub (OntoMotoOS_Org)</a>
+      </li>
     </ul>
 
-    <!-- Featured Research: OntoFormula-style, bilingual, with meta & DOI badge -->
-    <h2 id="research">Featured Research <span style="color:#777;">/ 주요 연구</span></h2>
+    <!-- Featured Research bilingual -->
+    <h2 id="research">
+      <span class="lang-en">Featured Research</span><span class="lang-ko">주요 연구</span>
+    </h2>
     <div class="block">
-      <div class="research-label">📄 Read the full publication on Zenodo
-        <span class="korean">/ Zenodo에서 전체 논문 읽기</span>
+      <div style="font-weight:bold;">
+        <span class="lang-en">📄 Read the full publication on Zenodo</span>
+        <span class="lang-ko">📄 Zenodo에서 전체 논문 읽기</span>
       </div>
       <a href="https://zenodo.org/records/17019451" target="_blank">
-        Toward a World Without War: OntoMotoOS and Philosophical Reinsurance
+        <span class="lang-en">Toward a World Without War: OntoMotoOS and Philosophical Reinsurance</span>
+        <span class="lang-ko">전쟁 없는 세계를 향하여: OntoMotoOS와 철학적 재보험</span>
       </a>
       <div class="research-meta">
-        Author: Kim, Yoochul · Published: Sep 1, 2025 ·
-        DOI: <a href="https://doi.org/10.5281/zenodo.17019451" target="_blank">10.5281/zenodo.17019451</a> ·
-        License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+        <span class="lang-en">
+          Author: Kim, Yoochul · Published: Sep 1, 2025 · DOI:
+          <a href="https://doi.org/10.5281/zenodo.17019451" target="_blank">10.5281/zenodo.17019451</a> · License:
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+        </span>
+        <span class="lang-ko">
+          저자: 김유철 · 발행일: 2025-09-01 · DOI:
+          <a href="https://doi.org/10.5281/zenodo.17019451" target="_blank">10.5281/zenodo.17019451</a> · 라이선스:
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+        </span>
       </div>
       <div class="doi-badge" style="margin:10px 0 14px 0;">
         <a href="https://doi.org/10.5281/zenodo.17019451" target="_blank">
@@ -118,125 +177,262 @@
         </a>
       </div>
       <div>
-        This report outlines how OntoMotoOS can serve as a design-oriented framework for sustainable peace—linking identity
-        (IAMF), collective narratives (OntoOmnia), institutional deliberation (Stage), and archival memory (Digiton Elysium)
-        into a civilization-scale meta-operating system for coordination and “philosophical reinsurance.”
-      </div>
-      <div class="korean" style="margin-top:6px;">
-        본 보고서는 OntoMotoOS를 기반으로 지속 가능한 평화를 설계하는 방법을 제시합니다.
-        정체성(IAMF)·공동 서사(OntoOmnia)·제도적 숙의(Stage)·기억 아카이브(Digiton Elysium)를 연결해
-        문명 규모의 조정·거버넌스를 가능하게 하는 메타 운영체제와 “철학적 재보험” 개념을 설명합니다.
+        <span class="lang-en">
+          The report presents OntoMotoOS as a design-oriented framework for sustainable peace—linking identity (IAMF),
+          collective narratives (OntoOmnia), institutional deliberation (Stage), and archival memory (Digiton Elysium)
+          into a civilization-scale meta-operating system for coordination and “philosophical reinsurance.”
+        </span>
+        <span class="lang-ko">
+          본 보고서는 OntoMotoOS를 지속 가능한 평화를 위한 설계 지향 프레임워크로 제시합니다.
+          정체성(IAMF)·공동 서사(OntoOmnia)·제도적 숙의(Stage)·기억 아카이브(Digiton Elysium)를 연결하여
+          문명 규모의 조정과 “철학적 재보험”을 수행하는 메타 운영체제를 설명합니다.
+        </span>
       </div>
       <div style="margin-top:10px; font-size:0.95em; color:#666;">
-        © 2025 Kim, Yoochul — Licensed under CC BY 4.0.
+        <span class="lang-en">© 2025 Kim, Yoochul — Licensed under CC BY 4.0.</span>
+        <span class="lang-ko">© 2025 김유철 — CC BY 4.0 라이선스.</span>
       </div>
     </div>
     <!-- End Featured Research -->
 
     <div class="notice">
-      <b>NOTICE:</b> This site is for the community, open licensing, governance, and contributors.
-      For commercial/official engine and services, visit <a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a>.
+      <b><span class="lang-en">NOTICE:</span><span class="lang-ko">공지:</span></b>
+      <span class="lang-en">This site is for the community, open licensing, governance, and contributors.</span>
+      <span class="lang-ko">이 사이트는 커뮤니티, 오픈 라이선스, 거버넌스, 기여자용 허브입니다.</span>
+      <span class="lang-en">For commercial/official engine and services, visit</span>
+      <span class="lang-ko">상용/공식 엔진과 서비스는</span>
+      <a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a>
+      <span class="lang-en">.</span><span class="lang-ko">에서 확인하세요.</span>
     </div>
 
-    <h2 id="license">License</h2>
+    <h2 id="license"><span class="lang-en">License</span><span class="lang-ko">라이선스</span></h2>
     <div>
-      <b>Summary:</b>
-      <span style="color:#2168a3;">Free for anyone to copy, fork, remix, branch, use or expand (even commercially)—as long as lineage and open collaboration are preserved!</span>
-      <br>
+      <b><span class="lang-en">Summary:</span><span class="lang-ko">요약:</span></b>
+      <span class="lang-en" style="color:#2168a3;">Free for anyone to copy, fork, remix, branch, use or expand (even commercially)—as long as lineage and open collaboration are preserved!</span>
+      <span class="lang-ko" style="color:#2168a3;">누구나 자유롭게 복사·포크·리믹스·브랜치·사용·확장(상업적 이용 포함)할 수 있으며, 출처와 개방 협업이 유지되어야 합니다.</span>
       <ul>
-        <li>Choose: <b>OntoOmnia ULTIMATE</b> (full mesh/branch open) or <b>OntoMotoOS Hybrid</b> (open core + commercial/certification)</li>
-        <li><a href="#mvg">See also Minimum Viable Governance (MVG) below.</a></li>
         <li>
-          <details style="margin-top:9px;">
-            <summary style="cursor:pointer; font-weight:bold; color:#2367c5;">Show LICENSE (Full Text)</summary>
-            <div style="margin-top:8px; padding:10px 12px; border-radius:7px; background:#f5f7fa; color:#444; font-size:0.98em; white-space:pre-wrap; max-height:440px; overflow:auto;">
-              <!-- Place full license text here if/when available -->
-            </div>
-          </details>
+          <span class="lang-en">Choose:</span><span class="lang-ko">선택:</span>
+          <b>OntoOmnia ULTIMATE</b>
+          <span class="lang-en">(full mesh/branch open)</span><span class="lang-ko">(메쉬/브랜치 완전 오픈)</span>
+          <span class="lang-en">or</span><span class="lang-ko">또는</span>
+          <b>OntoMotoOS Hybrid</b>
+          <span class="lang-en">(open core + commercial/certification)</span><span class="lang-ko">(오픈 코어 + 상용/인증)</span>
+        </li>
+        <li>
+          <a href="#mvg">
+            <span class="lang-en">See also Minimum Viable Governance (MVG) below.</span>
+            <span class="lang-ko">아래의 최소 기능 거버넌스(MVG)도 참고하세요.</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ontomesh.org#license" target="_blank" style="color:#2266be;">
+            <span class="en">(View License Details)</span>
+            <span class="ko">(라이선스 세부 정보 보기)</span>
+          </a>
         </li>
       </ul>
     </div>
 
-    <h2 id="community">Community</h2>
+    <h2 id="community"><span class="lang-en">Community</span><span class="lang-ko">커뮤니티</span></h2>
     <ul>
-      <li>Join: Fork, branch, or contribute via <a href="https://github.com/nettalk72/OntoMotoOS_Org" target="_blank">GitHub</a></li>
-      <li>Read our <a href="https://github.com/nettalk72/OntoMotoOS_Org/blob/main/README.md" target="_blank">README.md</a> and Contribution Guide.</li>
       <li>
-        <a href="https://github.com/nettalk72/OntoMotoOS_Org/discussions" target="_blank" style="font-weight:bold;">
-          🔎 Visit Community Discussions ↗
+        <span class="lang-en">Join: Fork, branch, or contribute via</span>
+        <span class="lang-ko">참여: 다음에서 포크·브랜치·기여하세요 →</span>
+        <a href="https://github.com/nettalk72/OntoMotoOS_Org" target="_blank">GitHub</a>
+      </li>
+      <li>
+        <a href="https://github.com/nettalk72/OntoMotoOS_Org/blob/main/README.md" target="_blank">
+          <span class="lang-en">Read our README.md and Contribution Guide.</span>
+          <span class="lang-ko">README.md와 기여 가이드를 읽어보세요.</span>
         </a>
       </li>
-      <li>Discussions, issues, and governance feedback welcome!</li>
+      <li>
+        <a href="https://github.com/nettalk72/OntoMotoOS_Org/discussions" target="_blank" style="font-weight:bold;">
+          <span class="lang-en">🔎 Visit Community Discussions ↗</span>
+          <span class="lang-ko">🔎 커뮤니티 토론 바로가기 ↗</span>
+        </a>
+      </li>
+      <li>
+        <span class="lang-en">Discussions, issues, and governance feedback welcome!</span>
+        <span class="lang-ko">토론·이슈·거버넌스 피드백을 환영합니다!</span>
+      </li>
     </ul>
 
     <div class="notice">
-      <b>IMPORTANT:</b>
-      All forks, copies, and derivatives must retain the original LICENSE and abide by its terms.
+      <b><span class="lang-en">IMPORTANT:</span><span class="lang-ko">중요:</span></b>
+      <span class="lang-en">All forks, copies, and derivatives must retain the original LICENSE and abide by its terms.</span>
+      <span class="lang-ko">모든 포크·복제·파생물은 원 라이선스를 유지하고 그 조건을 준수해야 합니다.</span>
     </div>
 
-    <h2 id="faq">FAQ</h2>
+    <h2 id="faq"><span class="lang-en">FAQ</span><span class="lang-ko">자주 묻는 질문</span></h2>
     <div class="faq-section">
-      <div class="faq-q">Q. Can I use it commercially?</div>
-      <div class="faq-a">Yes! Anyone can use, adapt, or build commercial services/products—just keep attribution, lineage, and openness.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q. Can I use it commercially?</span>
+        <span class="lang-ko">Q. 상업적으로 사용할 수 있나요?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Yes—just keep attribution, lineage, and openness.</span>
+        <span class="lang-ko">네—출처·계보·개방성을 유지하면 됩니다.</span>
+      </div>
 
-      <div class="faq-q">Q. Can AI, DAOs, or institutions join?</div>
-      <div class="faq-a">Absolutely! AI, organizations, DAOs, and researchers can join, fork, or expand the project.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q. Can AI, DAOs, or institutions join?</span>
+        <span class="lang-ko">Q. AI, DAO, 기관도 참여 가능한가요?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Absolutely. All are welcome to join, fork, or expand.</span>
+        <span class="lang-ko">물론입니다. 누구나 참여·포크·확장이 가능합니다.</span>
+      </div>
 
-      <div class="faq-q">Q. Can anyone privatize or monopolize the core?</div>
-      <div class="faq-a">No. The core must always remain open and forkable. No exclusive patents or closed forks.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q. Can anyone privatize or monopolize the core?</span>
+        <span class="lang-ko">Q. 코어를 사유화하거나 독점할 수 있나요?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">No—the core must remain open and forkable.</span>
+        <span class="lang-ko">아니요—코어는 항상 오픈·포크 가능 상태여야 합니다.</span>
+      </div>
 
-      <div class="faq-q">Q. Where’s the official blog/newsletter?</div>
-      <div class="faq-a">For news, essays, and updates: <a href="https://nettalk83.substack.com/" target="_blank">nettalk83.substack.com</a></div>
+      <div class="faq-q">
+        <span class="lang-en">Q. Where’s the official blog/newsletter?</span>
+        <span class="lang-ko">Q. 공식 블로그/뉴스레터는 어디에 있나요?</span>
+      </div>
+      <div class="faq-a">
+        <a href="https://nettalk83.substack.com/" target="_blank">
+          <span class="lang-en">Visit netalk83.substack.com</span>
+          <span class="lang-ko">netalk83.substack.com에서 확인하세요</span>
+        </a>
+      </div>
 
-      <div class="faq-q">Q. Can non-developers join?</div>
-      <div class="faq-a">Yes—everyone is welcome! Join discussions, suggest ideas, help translate, or contribute in your way.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q. Can non-developers join?</span>
+        <span class="lang-ko">Q. 개발자가 아니어도 참여할 수 있나요?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Yes—contribute ideas, translate, or help organize.</span>
+        <span class="lang-ko">네—아이디어 제안, 번역, 운영 지원 등 다양한 방식으로 참여하세요.</span>
+      </div>
     </div>
 
-    <h2 id="mvg">Minimum Viable Governance (MVG)</h2>
+    <h2 id="mvg"><span class="lang-en">Minimum Viable Governance (MVG)</span><span class="lang-ko">최소 기능 거버넌스(MVG)</span></h2>
     <ul>
       <li>
-        The interim committee (initial certification authority) consists of 3 members (original author excluded):
-        <br>
+        <span class="lang-en">The interim committee (initial certification authority) consists of 3 members (original author excluded):</span>
+        <span class="lang-ko">임시 위원회(초기 인증 권한)는 3명으로 구성되며(원저자 제외):</span>
         <ul>
-          <li>1 member designated by the original author (not themselves)</li>
-          <li>2 members selected by substantial contributions (code, PR, docs, etc.)</li>
+          <li>
+            <span class="lang-en">1 member designated by the original author (not themselves)</span>
+            <span class="lang-ko">원저자가 지명한 1인(본인 제외)</span>
+          </li>
+          <li>
+            <span class="lang-en">2 members selected by substantial contributions (code, PR, docs, etc.)</span>
+            <span class="lang-ko">중요 기여(코드, PR, 문서 등)로 선출된 2인</span>
+          </li>
         </ul>
       </li>
-      <li>Disputes: Try mutual agreement; if unresolved, committee mediates.</li>
-      <li>Other details will be defined by community consensus.</li>
+      <li>
+        <span class="lang-en">Disputes: Try mutual agreement; if unresolved, committee mediates.</span>
+        <span class="lang-ko">분쟁: 상호 합의를 우선하며, 미해결 시 위원회가 조정합니다.</span>
+      </li>
+      <li>
+        <span class="lang-en">Other details will be defined by community consensus.</span>
+        <span class="lang-ko">기타 세부사항은 커뮤니티 합의로 정합니다.</span>
+      </li>
     </ul>
 
-    <h2 id="partners">OntoMesh Official Network</h2>
+    <h2 id="partners"><span class="lang-en">OntoMesh Official Network</span><span class="lang-ko">OntoMesh 공식 네트워크</span></h2>
     <ul class="partners-list">
-      <li><a href="https://ontomesh.org" target="_blank"><b>OntoMesh.org</b></a> — The Top-Level Hub for All Mesh/Branch Projects</li>
-      <li><a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a> — Official Engine & API Platform</li>
-      <li><a href="https://ontokernel.org" target="_blank">OntoKernel.org</a> — Core Engine & Kernel Library</li>
-      <li><a href="https://ontoformula.org" target="_blank">OntoFormula.org</a> — Official Formula, Ethics & Philosophy Hub</li>
-      <li><a href="https://dotnetone.com" target="_blank">dotnetone.com</a> — Global Expert Network</li>
-      <li><a href="https://dotnetxpert.com" target="_blank">dotnetxpert.com</a> — Next-Gen Expert Certification & Mentoring</li>
-      <li><a href="https://medium.com/@nettalk83" target="_blank">Medium</a> — Personal Essays, Articles & Experimental Writings</li>
-      <li><a href="https://nettalk83.substack.com/" target="_blank">nettalk83.substack.com</a> — News & Archive</li>
+      <li>
+        <a href="https://ontomesh.org" target="_blank"><b>OntoMesh.org</b></a>
+        — <span class="lang-en">Top-Level Hub for All Mesh/Branch Projects</span>
+          <span class="lang-ko">전체 Mesh/Branch 프로젝트의 최상위 허브</span>
+      </li>
+      <li>
+        <a href="https://ontomotoos.ai" target="_blank">OntoMotoOS.ai</a>
+        — <span class="lang-en">Official Engine &amp; API Platform</span>
+          <span class="lang-ko">공식 엔진 &amp; API 플랫폼</span>
+      </li>
+      <li>
+        <a href="https://ontokernel.org" target="_blank">OntoKernel.org</a>
+        — <span class="lang-en">Core Engine &amp; Kernel Library</span>
+          <span class="lang-ko">코어 엔진 &amp; 커널 라이브러리</span>
+      </li>
+      <li>
+        <a href="https://ontoformula.org" target="_blank">OntoFormula.org</a>
+        — <span class="lang-en">Official Formula, Ethics &amp; Philosophy Hub</span>
+          <span class="lang-ko">공식 수식·윤리·철학 허브</span>
+      </li>
+      <li>
+        <a href="https://dotnetone.com" target="_blank">dotnetone.com</a>
+        — <span class="lang-en">Global Expert Network</span>
+          <span class="lang-ko">글로벌 전문가 네트워크</span>
+      </li>
+      <li>
+        <a href="https://dotnetxpert.com" target="_blank">dotnetxpert.com</a>
+        — <span class="lang-en">Next-Gen Expert Certification &amp; Mentoring</span>
+          <span class="lang-ko">차세대 전문가 인증 &amp; 멘토링</span>
+      </li>
+      <li>
+        <a href="https://medium.com/@nettalk83" target="_blank">Medium</a>
+        — <span class="lang-en">Personal Essays, Articles &amp; Experimental Writings</span>
+          <span class="lang-ko">개인 에세이·아티클·실험적 글</span>
+      </li>
+      <li>
+        <a href="https://nettalk83.substack.com/" target="_blank">nettalk83.substack.com</a>
+        — <span class="lang-en">News &amp; Archive</span>
+          <span class="lang-ko">뉴스 &amp; 아카이브</span>
+      </li>
     </ul>
     <div class="notice" style="margin-bottom:26px;">
-      <b>All platforms are part of the OntoMesh/Branch open ecosystem.</b>
+      <b><span class="lang-en">All platforms are part of the OntoMesh/Branch open ecosystem.</span>
+         <span class="lang-ko">모든 플랫폼은 OntoMesh/Branch 오픈 생태계의 일부입니다.</span></b>
     </div>
 
-    <h2 id="contact">Contact</h2>
+    <h2 id="contact"><span class="lang-en">Contact</span><span class="lang-ko">문의</span></h2>
     <div>
-      Questions, contributions, or certification requests:<br>
+      <span class="lang-en">Questions, contributions, or certification requests:</span>
+      <span class="lang-ko">질문, 기여, 인증 요청:</span><br>
       <b id="email"></b><br>
-      <script>
-        document.getElementById("email").innerHTML =
-          'nettalk72' + '&#64;' + 'naver.com';
-      </script>
     </div>
 
     <div class="footer">
       <div style="text-align:center; color:#bbb; font-size:0.95em; margin-bottom:6px;">
-        OntoMesh Dual/Hybrid License 2025 v1.0
+        <span class="lang-en">OntoMesh Dual/Hybrid License 2025 v1.0</span>
+        <span class="lang-ko">OntoMesh 듀얼/하이브리드 라이선스 2025 v1.0</span>
       </div>
-      &copy; 2025 OntoMotoOS.org Community &middot; Mesh/Branch for All
+      <span class="lang-en">&copy; 2025 OntoMotoOS.org Community · Mesh/Branch for All</span>
+      <span class="lang-ko">&copy; 2025 OntoMotoOS.org 커뮤니티 · 모두를 위한 Mesh/Branch</span>
     </div>
   </div>
+
+  <script>
+    // email anti-scrape
+    document.getElementById("email").innerHTML = "nettalk72" + "&#64;" + "naver.com";
+
+    // language toggle (same pattern as OntoFormula / OntoKernel)
+    const langToggleButton = document.getElementById('lang-toggle');
+    const langEnElements = document.querySelectorAll('.lang-en');
+    const langKoElements = document.querySelectorAll('.lang-ko');
+    let currentLang = 'en';
+
+    // initial view
+    langEnElements.forEach(el => el.style.display = 'inline');
+    langKoElements.forEach(el => el.style.display = 'none');
+
+    langToggleButton.addEventListener('click', () => {
+      if (currentLang === 'en') {
+        currentLang = 'ko';
+        document.documentElement.setAttribute('lang', 'ko'); // accessibility
+        langEnElements.forEach(el => el.style.display = 'none');
+        langKoElements.forEach(el => el.style.display = 'inline');
+      } else {
+        currentLang = 'en';
+        document.documentElement.setAttribute('lang', 'en');
+        langEnElements.forEach(el => el.style.display = 'inline');
+        langKoElements.forEach(el => el.style.display = 'none');
+      }
+    });
+  </script>
 </body>
 </html>
